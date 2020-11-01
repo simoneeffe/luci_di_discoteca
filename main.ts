@@ -5,12 +5,69 @@ bluetooth.onBluetoothDisconnected(function () {
     basic.showIcon(IconNames.Sad)
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
-    if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_DOWN) {
-        basic.showNumber(1)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_UP) {
-        basic.showNumber(0)
+    if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
+        pins.digitalWritePin(DigitalPin.P1, 1)
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # # # # #
+            . . . . .
+            . . . . .
+            `)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_DOWN) {
+        pins.digitalWritePin(DigitalPin.P1, 1)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        basic.showLeds(`
+            . . # . .
+            . . # # .
+            . . # # #
+            . . # # .
+            . . # . .
+            `)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_DOWN) {
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        basic.showLeds(`
+            . . # . .
+            . # # . .
+            # # # . .
+            . # # . .
+            . . # . .
+            `)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_UP) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_UP) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_UP) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+    } else {
+    	
     }
 })
-basic.forever(function () {
-	
-})
+pins.digitalWritePin(DigitalPin.P1, 0)
+pins.digitalWritePin(DigitalPin.P8, 0)
