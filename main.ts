@@ -17,7 +17,7 @@ input.onButtonPressed(Button.B, function () {
     pins.digitalWritePin(DigitalPin.P8, 1)
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
-    if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
+    if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_DOWN) {
         pins.digitalWritePin(DigitalPin.P1, 1)
         pins.digitalWritePin(DigitalPin.P8, 1)
         basic.showLeds(`
@@ -47,7 +47,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . # # . .
             . . # . .
             `)
-    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_UP) {
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_UP) {
         basic.showLeds(`
             . . . . .
             . . . . .
@@ -77,6 +77,42 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             `)
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P8, 0)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_C_DOWN) {
+        basic.showLeds(`
+            . . . . .
+            . . # . .
+            . # # . .
+            . . # . .
+            . . . . .
+            `)
+        pins.digitalWritePin(DigitalPin.P1, 1)
+        basic.pause(100)
+        pins.digitalWritePin(DigitalPin.P1, 0)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
+    } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_D_DOWN) {
+        basic.showLeds(`
+            . . . . .
+            . . # . .
+            . . # # .
+            . . # . .
+            . . . . .
+            `)
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        basic.pause(100)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . # . .
+            . . . . .
+            . . . . .
+            `)
     } else {
     	
     }
