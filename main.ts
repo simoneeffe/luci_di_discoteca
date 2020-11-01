@@ -28,8 +28,8 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . . . .
             `)
     } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_DOWN) {
-        pins.digitalWritePin(DigitalPin.P1, 1)
-        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P1, 0)
         basic.showLeds(`
             . . # . .
             . . # # .
@@ -38,8 +38,8 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
             . . # . .
             `)
     } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_DOWN) {
-        pins.digitalWritePin(DigitalPin.P1, 0)
-        pins.digitalWritePin(DigitalPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P1, 1)
         basic.showLeds(`
             . . # . .
             . # # . .
@@ -50,7 +50,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
     } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_UP) {
         basic.showLeds(`
             . . . . .
-            . . # . .
+            . . . . .
             . . # . .
             . . . . .
             . . . . .
@@ -61,7 +61,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         basic.showLeds(`
             . . . . .
             . . . . .
-            . # # . .
+            . . # . .
             . . . . .
             . . . . .
             `)
@@ -71,7 +71,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         basic.showLeds(`
             . . . . .
             . . . . .
-            . . # # .
+            . . # . .
             . . . . .
             . . . . .
             `)
@@ -81,3 +81,10 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
     	
     }
 })
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)
