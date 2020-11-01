@@ -3,6 +3,18 @@ bluetooth.onBluetoothConnected(function () {
 })
 bluetooth.onBluetoothDisconnected(function () {
     basic.showIcon(IconNames.Sad)
+    pins.digitalWritePin(DigitalPin.P1, 0)
+    pins.digitalWritePin(DigitalPin.P8, 0)
+})
+input.onButtonPressed(Button.A, function () {
+    pins.digitalWritePin(DigitalPin.P1, 1)
+})
+input.onButtonPressed(Button.AB, function () {
+    pins.digitalWritePin(DigitalPin.P1, 0)
+    pins.digitalWritePin(DigitalPin.P8, 0)
+})
+input.onButtonPressed(Button.B, function () {
+    pins.digitalWritePin(DigitalPin.P8, 1)
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
@@ -38,7 +50,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
     } else if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_UP) {
         basic.showLeds(`
             . . . . .
-            . . . . .
+            . . # . .
             . . # . .
             . . . . .
             . . . . .
@@ -49,7 +61,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         basic.showLeds(`
             . . . . .
             . . . . .
-            . . # . .
+            . # # . .
             . . . . .
             . . . . .
             `)
@@ -59,7 +71,7 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
         basic.showLeds(`
             . . . . .
             . . . . .
-            . . # . .
+            . . # # .
             . . . . .
             . . . . .
             `)
@@ -69,5 +81,3 @@ control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EV
     	
     }
 })
-pins.digitalWritePin(DigitalPin.P1, 0)
-pins.digitalWritePin(DigitalPin.P8, 0)
